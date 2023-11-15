@@ -1,0 +1,39 @@
+.fondo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 715.20px;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 10px;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.titulo{
+    margin-top: 60px;
+    height: fit-content;
+}
+
+.button{
+    width: fit-content;
+    padding: 4px auto;
+    align-self: center;
+    border: solid #9996 1px;
+    border-radius: 3px;
+}
+
+.a{
+    text-decoration: none;
+}
+
+a:visited {
+    color: #666;
+  }

@@ -1,0 +1,30 @@
+.fondo {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #8886;
+    top: 0;
+    z-index: 1;
+}
+
+.div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #723589;
+    border-radius: 8px;
+    height: 500px;
+    width: 500px;
+    margin: 100px auto;
+}
+
+.button {
+    align-self: flex-end;
+    position: absolute;
+    top: 100px;
+    margin: 7px;
+    background: none;
+    border: #3b1551 solid 1px;
+    border-radius: 45%;
+}

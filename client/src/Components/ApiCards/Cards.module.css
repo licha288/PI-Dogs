@@ -1,0 +1,24 @@
+.div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 10px;
+    border-radius: 8px;
+    width: 80%;
+    overflow: auto;
+}
+
+.cardDiv {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 400px;
+    overflow: auto;
+}
+
+
+
+.cargando{
+    
+}

@@ -1,0 +1,25 @@
+.div {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 10px;
+    border-radius: 8px;
+    width: 80%;
+    padding: 20px 5px;
+    overflow: auto;
+    margin: 10px 0;
+}
+
+@media screen and (min-width: 329px){
+    .div{
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 700px){
+    .div{
+        margin: 10px;
+    }
+}
+
+.message{
+    font-size: 20px;
+    margin-top: 10px;
+}

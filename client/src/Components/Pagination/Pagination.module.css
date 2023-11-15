@@ -1,0 +1,30 @@
+
+.div {
+    align-self: center;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+.ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.li {
+    list-style: none;
+}
+
+.currentButton {
+    background: none;
+    background-color: brown;
+    width: 5px;
+    height: 5px;
+}
+
+.otherButton {
+    
+    background: none;
+    background-color: #a0a0a0;
+}
