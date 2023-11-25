@@ -1,15 +1,15 @@
-import s from "./Cards.module.css"
+import s from "./ApiDogs.module.css"
 import { useDispatch, useSelector } from "react-redux" 
 import { useEffect, useState } from "react";
 
-import Card from "../Card/Card";
-import Pagination from "../Pagination/Pagination";
-import Filtros from "../Filtros/Filtros";
-import { getRazas } from "../../Utils/api";
-import { loadApiRazas, loadOriginalApiRazas } from "../../redux/actions";
+import Card from "../../Card/Card";
+import Pagination from "../../Pagination/Pagination";
+import Filtros from "../../Filtros/Filtros";
+import { getRazas } from "../../../Utils/api";
+import { loadApiRazas, loadOriginalApiRazas } from "../../../redux/actions";
 
 
-export default function ApiCards(){
+export default function ApiDogs(){
     const [ currentPage, setCurrentPage] =  useState(1)
     const apiDogs = useSelector(state=>state.apiDogs)
     const dispatch = useDispatch()
@@ -24,8 +24,8 @@ export default function ApiCards(){
             dispatch(loadApiRazas(razasTempsArray));
             dispatch(loadOriginalApiRazas(razasTempsArray));
         }
-        apiDogs.length === 0 && axiosRazas()
-    }, [apiDogs])
+        if (apiDogs.length === 0) axiosRazas();
+      }, [apiDogs, dispatch]);
 
     function handlePageChange(newPage) {
         setCurrentPage(newPage)

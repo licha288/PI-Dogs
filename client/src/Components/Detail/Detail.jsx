@@ -14,7 +14,7 @@ export default function Detail({ id }){
         }
         id && getRaza(id)
     }, [id])
-
+    
     return (
         <div>
             {raza && 

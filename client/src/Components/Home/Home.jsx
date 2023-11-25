@@ -3,9 +3,9 @@ import { useSelector } from "react-redux"
 
 
 import Nav from "../Nav/Nav"
-import ApiCards from "../ApiCards/ApiCards"
 import Ventana from "../VentanaEmergente/Ventana"
-import MyDogs from "../MyDogs/MyDogs"
+import ApiDogs from "../Dogs/ApiDogs/ApiDogs"
+import MyDogs from "../Dogs/MyDogs/MyDogs"
 
 
 export default function Home(){
@@ -17,8 +17,8 @@ export default function Home(){
             { ventanaPopup && <Ventana/>}
             <Nav/>
             <section className={s.cards}>
-                <MyDogs/>
-                <ApiCards/>
+                <MyDogs className={s.flexItem1}/>
+                <ApiDogs className={s.flexItem2}/>
             </section>
         </div>
     )

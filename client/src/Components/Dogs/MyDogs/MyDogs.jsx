@@ -2,10 +2,10 @@ import s from "./MyDogs.module.css"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux";
 
-import Card from "../Card/Card";
-import Pagination from "../Pagination/Pagination";
-import { loadDbRazas, openVentana } from "../../redux/actions"
-import { getRazas } from "../../Utils/api";
+import Card from "../../Card/Card";
+import Pagination from "../../Pagination/Pagination";
+import { loadDbRazas, openVentana } from "../../../redux/actions"
+import { getRazas } from "../../../Utils/api";
 
 export default function MyDogs(){
 
