@@ -1,6 +1,5 @@
 .div {
     flex-grow: 1;
-    width: 260px;
     height: 50vh;
     box-shadow: rgba(0, 0, 0, 0.259) 0px 1px 4px;
     overflow: hidden;
@@ -12,6 +11,7 @@
     .div{
         width: 75vw;
         height: 50vh;
+        margin-top: 20px;
     }
 }
 
@@ -19,7 +19,7 @@
     .div{
         width: 5vw;
         margin: 20px 7.5px 20px 10px;
-        height: 75vh;
+        height: 70vh;
     }
 }
 

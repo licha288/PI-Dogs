@@ -8,7 +8,6 @@
     overflow: auto;
     min-width: 260px;
     height: 75vh;
-    margin: 20px 10px 20px 7.5px;
 }
 
 .cardDiv {
@@ -31,6 +30,6 @@
     .div{
         width: 5vw;
         margin: 20px 7.5px 20px 10px;
-        height: 75vh;
+        height: 70vh;
     }
 }

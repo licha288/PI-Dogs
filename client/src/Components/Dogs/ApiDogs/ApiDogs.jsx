@@ -32,9 +32,9 @@ export default function ApiDogs(){
     }
 
     const cardsPerPage = 15;
-    const startIndex = (currentPage - 1) * cardsPerPage;
-    const endIndex = startIndex + cardsPerPage;
-    const cardsToShow = apiDogs.slice(startIndex, endIndex);
+    let startIndex = (currentPage - 1) * cardsPerPage;
+    let endIndex = startIndex + cardsPerPage;
+    let cardsToShow = apiDogs.slice(startIndex, endIndex);
 
     return (
         <div className={s.div}>

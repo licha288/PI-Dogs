@@ -2,8 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffdfb09f;
+    background-color: #e2caaad1;
+    overflow: hidden;
 }
+
+/*ffdfb09f*/
 
 .cards {
     width: 100%;

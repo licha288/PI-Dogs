@@ -20,10 +20,6 @@ export default function Card({id, img, name, temperaments, height, weight, life_
         <div>
             {aux === "Cards" ? (
                 <div className={s.div}>
-                    <img className={s.img} src={img} alt={name} onClick={() => {
-                            handleVentana(id)
-                        }}
-                    />
                     <h1 
                         className={s.nombre} 
                         onClick={() => {
@@ -31,6 +27,10 @@ export default function Card({id, img, name, temperaments, height, weight, life_
                         }}>
                         {name} 
                     </h1>
+                    <img className={s.img} src={img} alt={name} onClick={() => {
+                            handleVentana(id)
+                        }}
+                    />
                     <button onClick={() => setShowTemps(!showTemps)}>
                         Temperamentos
                     </button>
