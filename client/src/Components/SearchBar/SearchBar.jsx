@@ -13,18 +13,24 @@ export default function SearchBar(){
     const popup = useSelector(state=>state.modal.popup)
     const dispatch = useDispatch()
 
-    function handleChange(e){
+    async function handleChange(e){
         setInputValue(e.target.value)
-    }
-
-    const handleSearch = async () => {
         try {
             const razas = await getRazaByName(inputValue)
-            dispatch(openModal(razas))
+            razas ? dispatch(openModal(razas)) : dispatch(closeModal)
         } catch (error) {
             dispatch(openModal(error))
         }
-      }
+    }
+
+    // const handleSearch = async () => {
+    //     try {
+    //         const razas = await getRazaByName(inputValue)
+    //         dispatch(openModal(razas))
+    //     } catch (error) {
+    //         dispatch(openModal(error))
+    //     }
+    // }
     
     function handleValue() {
         setInputValue("")
@@ -33,14 +39,17 @@ export default function SearchBar(){
 
     return (
         <div className={s.div}>
-            <input className={s.searchBar} type="text" onChange={handleChange} value={inputValue}/>
-            { inputValue && <button className={s.clearInput} onClick={handleValue}>x</button>}
+            <section className={s.section}>
+                <input className={s.searchBar} type="text" onChange={handleChange} value={inputValue}/>
+                { inputValue && <button className={s.clearInput} onClick={handleValue}>x</button>}
+            </section>
             
-            <button className={s.button} onClick={handleSearch}>Buscar</button>
-            {  popup && typeof dataModal === "string" ?
+            {/* <button className={s.button} onClick={handleSearch}>Buscar</button> */}
+            {  !inputValue ? <></> : popup && typeof dataModal === "string" ?
                 (<h1 className={s.h1}>No se encontró "{inputValue}"</h1>)
                 : (<Modal array={dataModal} aux={"search"}/>) 
             }
+
         </div>
     )
 }

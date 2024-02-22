@@ -1,6 +1,6 @@
 import s from "./Modal.module.css"
 import { useDispatch } from "react-redux"
-import { openVentana } from "../../redux/actions"
+import { closeModal, openVentana } from "../../redux/actions"
 
 export default function Modal({ array, aux }){
     

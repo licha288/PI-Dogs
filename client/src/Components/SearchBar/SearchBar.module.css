@@ -1,15 +1,19 @@
 .div{
     display: flex;
+    flex-direction: column;
     width: 85%;
-    justify-content: center;
+    align-items: center;
+}
+
+.section{
+    width: 100%;
 }
 
 .searchBar{
     width: 50%;
-    background-color: #86b53059;
+    background-color: #f4ffed8f;
     border: solid #2228 1px;
     border-radius: 2px;
-    margin: 40px 0;
 }
 
 @media screen and (min-width: 700px) {
@@ -20,18 +24,19 @@
 
 .clearInput {
     position: absolute;
+    background-color: #9eb3918f;
     color: #545454;
     border: none;
     border-radius: 50%;
     font-size: 12px;
-    margin: 1.5px 150px;
-    padding: 1px 5px;
+    margin: 6px -19px;
+    padding: 0px 5px 2px 5px;
 }
 
 .button{
-    background-color: #55771680;
+    background-color: #70935753;
     border: solid #2228 1px;
-    margin: 40px 0;
+    margin: 5px 0 35px 0;
 }
 
 .h1{
@@ -43,3 +48,11 @@
     list-style: none;
     font-size: 16px;
 }
+
+/* .modalOn{
+    display: block;
+}
+
+.modalOff{
+    display: none;
+} */

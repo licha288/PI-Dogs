@@ -1,6 +1,8 @@
 .div {
     position: absolute;
-    margin-top: 24px;
+    margin-top: 25px;
+    width: 28.5%;
+    background-color: none;
 }
 
 .ul{
@@ -10,9 +12,10 @@
     background-color: #fff;
     border: solid #78ad5450 2px;
     border-radius: 8px;
+    border-top: none;
     padding: 0;
     margin: 0;
-    border-top: none;
+    width: 100%;
 }
 
 .li{
