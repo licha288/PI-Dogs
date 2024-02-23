@@ -4,27 +4,67 @@
     display: flex;
     width: fit-content;
     height: fit-content;
+    margin: 5px 0;
 }
 
 .ul {
     display: flex;
-    margin: 0;
+    margin: 1px 0 2px 0;
     padding: 0;
 }
 
 .li {
+    display: flex;
+    justify-content: center;
     list-style: none;
+    margin: 0 1px 0 1px;
+    background: none;
+    border: none;
+    border-radius: 5px;
 }
 
+.currentLi {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    list-style: none;
+    margin: 0 2px 0 2px;
+}
+
+
 .currentButton {
-    background: none;
-    background-color: brown;
-    width: 5px;
-    height: 5px;
+    background-color: #debf6be3;
+    border: 1.5px solid #ceb46c93;
+    border-radius: 5px;
+    padding: 3px 6px 2px 6px;
+}
+
+@keyframes show{ 
+    0% {
+        background: none;
+    }
+    100% {
+        background-color: #d0b057d7;
+    }
+}
+
+.moveButton {
+    background: #eace84aa;
+    border: 1.5px solid #ceb46c93;
+    border-radius: 5px;
+    padding: 2px 4px 0px 5px;
 }
 
 .otherButton {
-    
     background: none;
-    background-color: #a0a0a0;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 6px 2px 6px;
 }
+
+.otherButton:hover {
+    animation-name: show;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+

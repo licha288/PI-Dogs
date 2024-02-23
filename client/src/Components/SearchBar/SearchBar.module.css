@@ -7,10 +7,10 @@
 }
 
 .h1{
-    font-size: 30px;
+    font-size: 32px;
     color: #ffeedb;
-    letter-spacing: 2px;
-    margin: 15px; 
+    letter-spacing: 1px;
+    margin: 20px 15px 15px 15px; 
 }
 
 .section{
@@ -26,9 +26,15 @@
     outline: none;
 }
 
+.searchBar::placeholder {
+    color: #41583464;
+    font-size: 14px;
+    padding-left: 7px;
+}
+
 .placeholder{
     position: absolute;
-    color: #4158349f;
+    color: #41583429;
     
 }
 

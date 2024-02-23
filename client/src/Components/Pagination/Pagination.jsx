@@ -21,15 +21,15 @@ export default function Pagination({ totalPages, currentPage, handlePageChange }
             )}
             {startPage > 1 && (
                 <li key="prev" className={s.li}>
-                    <button onClick={() => handlePageChange(currentPage - 1)} className={s.otherButton}>
-                        Prev
+                    <button onClick={() => handlePageChange(currentPage - 1)} className={s.moveButton}>
+                        {"<"}
                     </button>
                 </li>
             )}
             {visiblePages.map((num) => (
                 <li key={num} className={s.li}>
                     <button onClick={() => {handlePageChange(num)}}
-                            className={currentPage === num ? s.currentButon : s.otherButton}
+                            className={currentPage === num ? s.currentButton : s.otherButton}
                     >
                         {num}
                     </button>
@@ -37,8 +37,8 @@ export default function Pagination({ totalPages, currentPage, handlePageChange }
             ))}
             {endPage < totalPages && (
                 <li key="next" className={s.li}>
-                    <button onClick={() => handlePageChange(currentPage + 1)} className={s.otherButton}>
-                        Next
+                    <button onClick={() => handlePageChange(currentPage + 1)} className={s.moveButton}>
+                        {">"}
                     </button>
                 </li>
             )}
