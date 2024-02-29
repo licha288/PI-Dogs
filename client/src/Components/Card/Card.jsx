@@ -7,7 +7,7 @@ import Pagination from "../Pagination/Pagination"
 export default function Card({id, img, name, temperaments, height, weight, life_span, aux}){
 
     const [ currentPage, setCurrentPage] = useState(1)
-    const [ showTemps, setShowTemps] = useState(false)
+    // const [ showTemps, setShowTemps] = useState(false)
     const dispatch = useDispatch()
 
     const handleVentana = (id) => {
@@ -16,10 +16,15 @@ export default function Card({id, img, name, temperaments, height, weight, life_
     function handlePageChange(newPage) {
         setCurrentPage(newPage)
     }
+
     return (
         <div>
             {aux === "Cards" ? (
                 <div className={s.div}>
+                    <img className={s.img} src={img} alt={name} onClick={() => {
+                            handleVentana(id)
+                        }}
+                    />
                     <h1 
                         className={s.nombre} 
                         onClick={() => {
@@ -27,25 +32,19 @@ export default function Card({id, img, name, temperaments, height, weight, life_
                         }}>
                         {name} 
                     </h1>
-                    <img className={s.img} src={img} alt={name} onClick={() => {
-                            handleVentana(id)
-                        }}
-                    />
-                    <button onClick={() => setShowTemps(!showTemps)}>
-                        Temperamentos
-                    </button>
-                    {showTemps && (
-                        <div>
-                            {temperaments.map((temp, i) => (
-                                <div key={i}>{temp.name}</div>
-                            ))}
-                        </div>
-                    )}
-                    <h2 className={s.peso} onClick={() => {
-                            handleVentana(id)
-                        }}>
-                        Peso: "{weight}"
-                    </h2>
+                    <ul className={s.tempList}>
+                        {temperaments.map((temp, i) => (
+                            <li className={s.temp} key={i}>{temp}</li>    
+                        ))}
+                    </ul>
+                    <div>
+                        <h2 className={s.peso} onClick={() => {
+                                handleVentana(id)
+                            }}>
+                            Peso: "{weight}"
+                        </h2>
+                    </div>
+                    
                 </div>
             ): (
                 <div className={s.div}>

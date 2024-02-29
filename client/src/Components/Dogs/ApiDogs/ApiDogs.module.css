@@ -5,9 +5,9 @@
     justify-content: space-around;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    overflow: auto;
     min-width: 260px;
     height: 75vh;
+    background-color: #ffe4c2d1;
 }
 
 .cardDiv {
@@ -18,6 +18,16 @@
     overflow: auto;
 }
 
+.cardDiv::-webkit-scrollbar{
+    width: 9px;
+    background-color: #f5ac3fd8;
+    border-radius: 5px;
+}
+
+.cardDiv::-webkit-scrollbar-thumb{
+    background-color: #f4c988;
+    border-radius: 5px;
+}
 
 @media screen and (min-width: 329px){
     .div{

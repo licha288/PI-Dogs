@@ -14,11 +14,17 @@
 }
 
 .section{
-    width: 100%;
+    width: 300px;
+}
+
+.searchBarContainer{
+    display: flex;
+    position: relative;
+    width: 250px;
 }
 
 .searchBar{
-    width: 50%;
+    width: 100%;
     font-size: 16px;
     background-color: #f4ffed8f;
     border: solid #2228 1px;
@@ -32,34 +38,38 @@
     padding-left: 7px;
 }
 
-.placeholder{
+/* .placeholder{
     position: absolute;
     color: #41583429;
     
+} */
+
+.clearInput {
+    position: absolute;
+    right: 3px;
+    top: 3.5px;
+    padding: 0px 5px 2px 5px;
+    background-color: #9eb3918f;
+    color: #545454;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
 }
 
 @media screen and (min-width: 700px) {
     .div{
         width: 583px;
     }
+    .searchBarContainer{
+        width: 100%;
+    }
 }
 
-.clearInput {
-    position: absolute;
-    background-color: #9eb3918f;
-    color: #545454;
-    border: none;
-    border-radius: 50%;
-    font-size: 12px;
-    margin: 4.8px -19px;
-    padding: 0px 5px 2px 5px;
-}
-
-.button{
+/* .button{
     background-color: #70935753;
     border: solid #2228 1px;
     margin: 5px 0 35px 0;
-}
+} */
 
 .h3{
     color: #b53630;
@@ -69,11 +79,3 @@
     list-style: none;
     font-size: 16px;
 }
-
-/* .modalOn{
-    display: block;
-}
-
-.modalOff{
-    display: none;
-} */

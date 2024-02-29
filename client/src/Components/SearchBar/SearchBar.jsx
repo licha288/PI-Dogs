@@ -43,18 +43,18 @@ export default function SearchBar(){
             <h1 className={s.h1}>Bienvenido!</h1>
 
             <section className={s.section}>
-
-                <input className={s.searchBar} type="text" onChange={handleChange} value={inputValue} placeholder={"Buscar raza..."}/>
-                { inputValue && <button className={s.clearInput} onClick={handleValue}>x</button>}
-                {/* <div className={s.placeholder}>Buscar raza...</div> */}
-
+                <div className={s.searchBarContainer}>
+                    <input className={s.searchBar} type="text" onChange={handleChange} value={inputValue} placeholder={"Buscar raza..."}/>
+                    { inputValue && <button className={s.clearInput} onClick={handleValue}>x</button>}
+                    {/* <div className={s.placeholder}>Buscar raza...</div> */}
+                </div>
+                {  !inputValue ? <></> : popup && typeof dataModal === "string" ?
+                    (<h3 className={s.h3}>No se encontró "{inputValue}"</h3>)
+                    : (<Modal array={dataModal} aux={"search"}/>) 
+                }
             </section>
             
             {/* <button className={s.button} onClick={handleSearch}>Buscar</button> */}
-            {  !inputValue ? <></> : popup && typeof dataModal === "string" ?
-                (<h3 className={s.h3}>No se encontró "{inputValue}"</h3>)
-                : (<Modal array={dataModal} aux={"search"}/>) 
-            }
 
         </div>
     )
