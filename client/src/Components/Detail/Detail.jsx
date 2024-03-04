@@ -1,4 +1,4 @@
-// import s from "./Plantilla.module.css"
+import s from "../Card/Card.module.css"
 import Card from "../Card/Card"
 import { getRazaById } from "../../Utils/api"
 import { useEffect, useState } from "react"
@@ -16,7 +16,7 @@ export default function Detail({ id }){
     }, [id])
     
     return (
-        <div>
+        <div className={s.div}>
             {raza && 
                 <Card   
                     id={raza.id}

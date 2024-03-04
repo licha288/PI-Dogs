@@ -1,7 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .div {
     display: flex;
     flex-direction: column;
+    position: relative;
     background-color: #ffdfb09f;
     width: 200px;
     height: 280px;
@@ -22,17 +28,34 @@
     margin: 3px auto;
 }
 
+.id {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    font-size: 15px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    background-color: #f4c988;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.h4{
+    font-size: 12px;
+    margin-top: 9px;
+}
+
 .tempList{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 50px;
     width: 95%;
-    margin: auto;
-    padding: 0;
+    margin: 0px auto;
     list-style: none;
     overflow: auto;
+    border: none;
+    appearance: none;
 }
 
 .tempList::-webkit-scrollbar{
@@ -57,4 +80,19 @@
     font-size: 13px;
     margin: 0 0 2px 5px ;
     text-align: start;
+    position: absolute;
+    bottom: 3px;
+    left: 2px;
+}
+
+.info{
+    font-size: 18px;
+    align-self: flex-start;
+    margin: 4px 2px;
+}
+
+.pagination {
+    position: absolute;
+    bottom: 3px;
+    left: 80px;
 }

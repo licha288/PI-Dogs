@@ -18,7 +18,7 @@ export default function Card({id, img, name, temperaments, height, weight, life_
     }
 
     return (
-        <div>
+        <>
             {aux === "Cards" ? (
                 <div className={s.div}>
                     <img className={s.img} src={img} alt={name} onClick={() => {
@@ -32,45 +32,49 @@ export default function Card({id, img, name, temperaments, height, weight, life_
                         }}>
                         {name} 
                     </h1>
+                    <h4 className={s.h4}>Temperamentos:</h4>
                     <ul className={s.tempList}>
                         {temperaments.map((temp, i) => (
                             <li className={s.temp} key={i}>{temp}</li>    
                         ))}
                     </ul>
-                    <div>
-                        <h2 className={s.peso} onClick={() => {
-                                handleVentana(id)
-                            }}>
-                            Peso: "{weight}"
-                        </h2>
-                    </div>
+                    <h2 className={s.peso} onClick={() => {
+                            handleVentana(id)
+                        }}>
+                        Peso: "{weight}"
+                    </h2>
                     
                 </div>
             ): (
-                <div className={s.div}>
+                <>
                     {currentPage === 1 ? (
-                        <div>
-                            <h1 className={s.nombre}>{name}</h1>
-                            <h3 className={s.nombre}>{id}</h3>
+                        <>
                             <img className={s.img} src={img} alt={name} />
-                        </div>
+                            <h1 className={s.nombre}>{name}</h1>
+                            <h3 className={s.id}>{id}</h3>
+                            <h4 className={s.h4}>Temperamentos:</h4>
+                            <ul className={s.tempList}>
+                                {temperaments.map((temp, i) => (
+                                    <li className={s.temp} key={i}>{temp}</li>    
+                                ))}
+                            </ul>
+                        </>
                     ): (
-                        <div className={s.div}>
-                            <select name="" id="">
-                                <option value="">{temperaments}</option>
-                            </select>
-                            <h2 className={s.peso}>Peso: "{weight}"</h2>
-                            <h2 className={s.peso}>Altura: "{height}"</h2>
-                            <h2 className={s.peso}>Life Time: "{life_span}"</h2>
-                        </div>
+                        <>
+                            <h3 className={s.info}>Peso (kg): "{weight}"</h3>
+                            <h3 className={s.info}>Altura (cm): "{height}"</h3>
+                            <h3 className={s.info}>Life Time: "{life_span}"</h3>
+                        </>
                     )}
-                    <Pagination 
-                        totalPages={2} 
-                        currentPage={currentPage} 
-                        handlePageChange={handlePageChange}
-                    />
-                </div>
+                    <div className={s.pagination}>
+                        <Pagination 
+                            totalPages={2} 
+                            currentPage={currentPage} 
+                            handlePageChange={handlePageChange}
+                        />
+                    </div>
+                </>
             )}
-        </div>
+        </>
     )
 }
