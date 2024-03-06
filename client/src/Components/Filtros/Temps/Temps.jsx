@@ -3,15 +3,15 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import { getTemps, saveTemperaments } from "../../../Utils/api"
-import { getTemperaments, loadApiRazas, loadDbRazas, saveFormTemps } from "../../../redux/actions"
+import { getTemperaments, loadApiRazas, loadDbRazas, saveFormTemps, loadTempsChoiced, daleteTempsChoiced } from "../../../redux/actions"
 
 
 export default function Temps({ aux }){
 
-    const [ tempsChoiced, setTempsChoiced ] = useState([])
-    const [filterOpen, setFilterOpen] = useState(false)
+    const [ filterOpen, setFilterOpen ] = useState(false)
 
     const temperaments = useSelector(state => state.temperaments)
+    const tempsChoiced = useSelector(state => state.tempsChoiced)
     const originalApiDogs = useSelector(state => state.originalApiDogs)
     const originalDbDogs = useSelector(state => state.originalDbDogs)
     const dispatch = useDispatch()
@@ -31,13 +31,13 @@ export default function Temps({ aux }){
 
     function aggTemp(temp){
         if(!tempsChoiced.includes(temp)){
-            setTempsChoiced([...tempsChoiced, temp])
+            dispatch(loadTempsChoiced(temp))
         }
     }
 
     function deleteTemp(temp){
         if (tempsChoiced.includes(temp)) {
-          setTempsChoiced(tempsChoiced.filter((tempChoiced) => tempChoiced !== temp));
+          dispatch(daleteTempsChoiced(temp))
         }
     }
 
@@ -64,82 +64,100 @@ export default function Temps({ aux }){
                 dispatch(loadDbRazas(filteredDogs))
             }
         }
-
+        console.log(tempsChoiced)
     }
 
   return (
         <div className={s.container}>
             <div className={s.openFilter}
-              onClick={() => {
-                setFilterOpen(!filterOpen)
-              }}
-            >
+              onClick={() => {setFilterOpen(!filterOpen)}}>
               Temperaments
             </div>
+            {tempsChoiced.length > 0 && filterOpen === false &&
+                <ul className={s.showSelectedTemps}>
+                    {tempsChoiced.map((temp, i) => (
+                        <li  key={i} className={s.showTemps}>
+                            {temp}
+                        </li>
+                    ))}
+                </ul>}
             { (aux === "form" && !filterOpen) && 
                   <ul className={s.ul}>
-                    {tempsChoiced.map((temp) => (
-                      <li className={s.temp} key={temp}>
-                        {temp}
-                        <button
-                          className={s.deleteTemp}
-                          onClick={() => {
-                            deleteTemp(temp)
-                          }}>
-                          x
-                        </button>
-                      </li>
-                    ))}
+                      {tempsChoiced.map((temp, i) => (
+                          <li className={s.selectedTemp} key={i}>
+                                {temp}
+                                <button
+                                    className={s.deleteTemp}
+                                    onClick={() => {
+                                        deleteTemp(temp)
+                                    }}>
+                                      x
+                                </button>
+                          </li>
+                      ))}
                   </ul>
-                  }   
+            } 
             <div className={filterOpen && s.tempsContainer}>
+                {
+                  filterOpen &&
+                  <div className={s.tituloButton}>
+                    <h5 className={s.aviso}>Selecciona temperamentos para filtrar</h5>
+                    <button className={s.Xbutton} 
+                            onClick={() => {setFilterOpen(!filterOpen)}}>
+                    x</button>
+                  </div>
+                }
               
-            {filterOpen && <button className={s.button} onClick={() => {setFilterOpen(!filterOpen)}}>x</button>}
-              {(tempsChoiced.length === 0 && filterOpen) && (
-                <div className={s.selectedTemps}>
-                  <h1 className={s.h1}>Aqui se mostraran los temperamentos elegidos!</h1>
-                </div>
-              ) }
-              {(tempsChoiced.length > 0 && filterOpen) && (
-                <div className={s.selectedTemps}>
-                  <h2 className={s.subtitulo}>Seleccionados:</h2>
-                  <ul className={s.ul}>
-                    {tempsChoiced.map((temp) => (
-                      <li className={s.temp} key={temp}>
+                {(
+                  tempsChoiced.length === 0 && filterOpen) && (
+                      <div className={s.selectedTemps}>
+                          <h1 className={s.h1}>Aqui se mostraran los temperamentos elegidos!</h1>
+                      </div>
+                )}
+
+                {(tempsChoiced.length > 0 && filterOpen) && (
+                  <div className={s.selectedTemps}>
+                    <h2 className={s.subtitulo}>Seleccionados:</h2>
+                    <ul className={s.ul}>
+                      {tempsChoiced.map((temp) => (
+                        <li className={s.selectedTemp} key={temp}>
+                          {temp}
+                          <button
+                            className={s.deleteTemp}
+                            onClick={() => {
+                              deleteTemp(temp)
+                            }}>
+                            x
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                    <button className={s.filtrar} onClick={() => {
+                                                              handleFilter(aux)
+                                                              setFilterOpen(false)
+                                                            }}>
+                      {aux === "api" && "Filtrar"}
+                      {aux === "form" && "Elegir"}
+                    </button>
+                  </div>
+                )}
+                {filterOpen && (
+                  <div className={s.tempFilter}>
+                    <h2 className={s.subtitulo}>Temperamentos:</h2>
+                    {temperaments.map((temp, i) => (
+                      <div
+                        key={i}
+                        className={s.normalTemp}
+                        onClick={() => {
+                          !tempsChoiced.includes(temp) && aggTemp(temp)
+                        }}>
+                        
                         {temp}
-                        <button
-                          className={s.deleteTemp}
-                          onClick={() => {
-                            deleteTemp(temp)
-                          }}>
-                          x
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                  <button className={s.filtrar} onClick={() => handleFilter(aux)}>
-                    {aux === "api" && "Filtrar"}
-                    {aux === "form" && "Elegir"}
-                  </button>
-                </div>
-              )}
-              {filterOpen && (
-                <div className={s.tempFilter}>
-                  <h2 className={s.subtitulo}>Temperamentos:</h2>
-                  {temperaments.map((temp) => (
-                    <div
-                      key={temp}
-                      className={tempsChoiced.includes(temp) ? "selected" : ""}
-                      onClick={() => {
-                        !tempsChoiced.includes(temp) && aggTemp(temp)
-                      }}>
                       
-                      {temp}
-                    
-                    </div>
-                  ))}
-                </div>
-              )}
+                      </div>
+                    ))}
+                  </div>
+                )}
             </div>
       </div>
     )

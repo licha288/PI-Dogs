@@ -4,9 +4,8 @@
     box-shadow: rgba(0, 0, 0, 0.259) 0px 1px 4px;
     overflow: hidden;
     border-radius: 3px;
-    background-color: #ffe4c2d1;
+    background-color: #f0d1a5;
 }
-
 
 @media screen and (min-width: 329px){
     .div{

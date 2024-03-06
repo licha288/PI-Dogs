@@ -1,5 +1,6 @@
 import { CLOSE_MODAL, OPEN_MODAL, LOAD_API_RAZAS, LOAD_ORIGINAL_API_RAZAS, LOAD_DB_RAZAS, 
-    OPEN_VENTANA, CLOSE_VENTANA, GET_TEMPERAMENTS, ORDER_API_DOGS, ORDER_DB_DOGS, SAVE_FORM_TEMPS} from "./actions"
+        OPEN_VENTANA, CLOSE_VENTANA, GET_TEMPERAMENTS, LOAD_TEMPS_CHOICED, DELETE_TEMPS_CHOICED,
+        ORDER_API_DOGS, ORDER_DB_DOGS, SAVE_FORM_TEMPS} from "./actions"
 
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
     originalDbDogs: [],
     formTemps: [],
     temperaments: [],
+    tempsChoiced:[],
     modal:{
         data: [],
         popup: false
@@ -37,6 +39,10 @@ const rootReducer = ( state = initialState, { type, payload }) => {
             return {...state, ventanaEmergente: payload}
         case GET_TEMPERAMENTS:
             return {...state, temperaments: payload}
+        case LOAD_TEMPS_CHOICED:
+            return {...state, tempsChoiced: [...state.tempsChoiced, payload]}
+        case DELETE_TEMPS_CHOICED:
+            return {...state, tempsChoiced: state.tempsChoiced.filter((tempChoiced) => tempChoiced !== payload)}
         case ORDER_API_DOGS:
             return {...state, apiDogs: payload}
         case ORDER_DB_DOGS:

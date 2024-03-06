@@ -1,31 +1,72 @@
-.containerClose {
-    align-self: flex-start;
+
+.fondo {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #656b5ee4;
+    border-radius: 3px;
+    z-index: 10;
 }
 
+.containerClose {
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    width: fit-content;
+}
 
 .containerOpen {
-    align-self: flex-start;
     position: absolute;
+    left: 0;
+    z-index: 10;
     display: flex;
     flex-direction: column;
-    background-color: #dd29;
+    background-color: #a4b48e;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 10px;
-    height: 450px;
+    height: 100%;
     width: 250px;
-    margin: 0;
-    border-radius: 8px;
+    border-radius: 3px 8px 8px 3px;
 }
 
-.button{
+.buttonClose{
     padding: 1px 5px;
     border: none;
     border: #7e8a65ad solid 1px;
     border-radius: 3px;
     background-color: #afc08ba9;
-    margin: 5px 0 1px 10px;
+}
+
+.buttonOpen{
+    align-self: flex-end;
+    font-size: 10px;
+    padding: 3px 5px;
+    margin: 5px 5px 0 0;
+    border: none;
+    color: #545454;
+    border-radius: 45%;
+    background-color: #cae7ba8f;
 }
 
 .button:hover {
     background-color: #eee;
     cursor: pointer;
+}
+
+.titulo{
+    align-self: flex-start;
+    margin: 8px 0 5px 10px;
+}
+
+.filterContainer{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.reset{
+    width: fit-content;
+    margin: 5px 7px 5px 4px;
+    padding: 1px 5px;
+    border: none;
+    border-radius: 2px;
 }

@@ -6,6 +6,8 @@ export const LOAD_DB_RAZAS = "LOAD_DB_RAZAS"
 export const OPEN_VENTANA = "OPEN_VENTANA"
 export const CLOSE_VENTANA = "CLOSE_VENTANA"
 export const GET_TEMPERAMENTS = "GET_TEMPERAMENTS"
+export const LOAD_TEMPS_CHOICED = "LOAD_TEMPS_CHOICED"
+export const DELETE_TEMPS_CHOICED = "DELETE_TEMPS_CHOICED"
 export const ORDER_API_DOGS = "ORDER_API_DOGS"
 export const ORDER_DB_DOGS = "ORDER_DB_DOGS"
 export const SAVE_FORM_TEMPS = "SAVE_FORM_TEMPS"
@@ -41,6 +43,14 @@ export function closeVentana(){
 
 export function getTemperaments(data){
     return { type: "GET_TEMPERAMENTS", payload: data}
+}
+
+export function loadTempsChoiced(data){
+    return { type: "LOAD_TEMPS_CHOICED", payload: data}
+}
+
+export function daleteTempsChoiced(data){
+    return { type: "DELETE_TEMPS_CHOICED", payload: data}
 }
 
 export function orderApiDogs(data){

@@ -16,19 +16,27 @@ export default function Filtros({ aux }) {
     const dispatch = useDispatch()
 
     return (
-        <div className={openFilters ? s.containerOpen : s.containerClose}>
-            <button className={s.button} onClick={() => setOpenFilters(!openFilters)}>
-                ☰
-            </button>
-            {openFilters && 
-                <div className={s.filterContainer}>
-                    <button onClick={() => {
-                        dispatch(aux === "api" ? loadApiRazas(originalApiDogs) : dispatch(loadDbRazas(originalDbDogs)))
-                    }}>Restablecer</button>
-                    <Temps aux={aux}/>
-                    <Alfabetic aux={aux}/>
-                </div>
-            }
+        <div className={openFilters && s.fondo}>
+            <div className={openFilters ? s.containerOpen : s.containerClose}>
+                <button className={openFilters ? s.buttonOpen : s.buttonClose} onClick={() => setOpenFilters(!openFilters)}>
+                    { openFilters ? ("X") : ("☰")}
+                </button>
+                {openFilters && <><h2 className={s.titulo}>Filtros</h2><hr /></>}
+                
+                {openFilters && 
+                    <div className={s.filterContainer}>
+                        <button 
+                            className={s.reset}
+                            onClick={() => {
+                                dispatch(aux === "api" ? loadApiRazas(originalApiDogs) : dispatch(loadDbRazas(originalDbDogs)))
+                            }}> 
+                            Restablecer
+                        </button>
+                        <Temps aux={aux}/>
+                        <Alfabetic aux={aux}/>
+                    </div>
+                }
+            </div>
         </div>
     )
 } 
